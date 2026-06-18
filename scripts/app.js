@@ -17,12 +17,16 @@
     const yyyy = now.getFullYear();
     const mo   = String(now.getMonth() + 1).padStart(2, '0');
     const dd   = String(now.getDate()).padStart(2, '0');
+    const DAY_ABBREVS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const MON_ABBREVS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const dayAbbr = DAY_ABBREVS[now.getDay()];
+    const monAbbr = MON_ABBREVS[now.getMonth()];
 
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
     set('scTime', timeStr);
     set('scDate', yyyy + '.' + mo + '.' + dd);
     set('tbTime', timeStr);
-    set('tbDate', yyyy + ' / ' + mo + ' / ' + dd);
+    set('tbDate', dayAbbr + ', ' + monAbbr + ' ' + String(now.getDate()));
   }
 
   // ── Sidebar toggle ────────────────────────────────────────────

@@ -23,7 +23,7 @@
 
     if (Object.keys(notes).length === 0) {
       const id = 'note-' + Date.now();
-      notes[id] = { name: 'Quick Notes', content: '// CyberDash initialized\n// Ready for input...' };
+      notes[id] = { name: 'MISSION BRIEFING', content: 'Primary objective: establish secure uplink to sector 7 mainframe.\n\nAuthorization code required.\nDo not engage hostile entities.\n\n// STATUS: ACTIVE' };
       activeId  = id;
     }
     if (!activeId || !notes[activeId]) {

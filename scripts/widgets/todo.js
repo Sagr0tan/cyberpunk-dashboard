@@ -19,9 +19,11 @@
 
     if (!Array.isArray(todos) || todos.length === 0) {
       todos = [
-        { id: 1, text: 'Configure news feed sources', priority: 'high', done: false },
-        { id: 2, text: 'Review project milestones',   priority: 'med',  done: false },
-        { id: 3, text: 'Update system configuration', priority: 'low',  done: true  },
+        { id: 1, text: 'CALIBRATE NEURAL INTERFACE',         priority: 'high', done: false },
+        { id: 2, text: 'UPDATE FIREWALL PROTOCOLS',          priority: 'high', done: false },
+        { id: 3, text: 'SYNC BACKUP TO OFFSITE NODE',        priority: 'med',  done: true  },
+        { id: 4, text: 'REVIEW SECTOR 7 ACCESS LOGS',        priority: 'med',  done: false },
+        { id: 5, text: 'OPTIMIZE MEMORY ALLOCATION',         priority: 'low',  done: false },
       ];
     }
   }

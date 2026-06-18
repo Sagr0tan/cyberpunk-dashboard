@@ -20,9 +20,10 @@
 
     if (!Array.isArray(projects) || projects.length === 0) {
       projects = [
-        { id: 1, name: 'CyberDash v1.0',   progress: 72,  status: 'active',  due: '2025-08-01' },
-        { id: 2, name: 'Neural API Client', progress: 45,  status: 'active',  due: '2025-09-15' },
-        { id: 3, name: 'Quantum UI Kit',    progress: 100, status: 'done',    due: '2025-07-10' },
+        { id: 1, name: 'NEXUS UPLINK',    progress: 100, status: 'done',   due: '2026-04-15' },
+        { id: 2, name: 'GHOST PROTOCOL',  progress: 67,  status: 'active', due: '2026-07-01' },
+        { id: 3, name: 'CIPHER MATRIX',   progress: 34,  status: 'active', due: '2026-08-20' },
+        { id: 4, name: 'SHADOW NODE',     progress: 20,  status: 'active', due: '2026-09-10' },
       ];
     }
   }

@@ -57,23 +57,15 @@
         </button>
         <ul class="nav-group-list" id="nav-modules">
           <li><button class="nav-item active" data-module="notes">
-            <span class="nav-pip"></span><span>Notes</span>
+            <span class="nav-pip"></span><span>OVERVIEW</span>
             <span class="nav-badge" id="nb-notes">1</span>
           </button></li>
-          <li><button class="nav-item" data-module="todo">
-            <span class="nav-pip"></span><span>Todo</span>
+          <li><button class="nav-item" data-module="projects">
+            <span class="nav-pip"></span><span>ANALYTICS</span>
             <span class="nav-badge" id="nb-todo">0</span>
           </button></li>
-          <li><button class="nav-item" data-module="news">
-            <span class="nav-pip"></span><span>News Feed</span>
-            <span class="nav-badge new">NEW</span>
-          </button></li>
           <li><button class="nav-item" data-module="videos">
-            <span class="nav-pip"></span><span>Videos</span>
-          </button></li>
-          <li><button class="nav-item" data-module="projects">
-            <span class="nav-pip"></span><span>Projects</span>
-            <span class="nav-badge" id="nb-projects">3</span>
+            <span class="nav-pip"></span><span>TERMINAL</span>
           </button></li>
         </ul>
       </div>
@@ -91,17 +83,17 @@
           </svg>
         </button>
         <ul class="nav-group-list" id="nav-feeds">
-          <li><button class="nav-item nav-item--feed active" data-feed="all">
-            <span class="feed-dot on"></span><span>All Feeds</span>
+          <li><button class="nav-item nav-item--feed" data-feed="all">
+            <span class="feed-dot on"></span><span>NEWS</span>
+            <span class="nav-badge">10</span>
           </button></li>
           <li><button class="nav-item nav-item--feed" data-feed="tech">
-            <span class="feed-dot"></span><span>Technology</span>
+            <span class="feed-dot"></span><span>SOCIAL</span>
+            <span class="nav-badge">8</span>
           </button></li>
           <li><button class="nav-item nav-item--feed" data-feed="science">
-            <span class="feed-dot"></span><span>Science</span>
-          </button></li>
-          <li><button class="nav-item nav-item--feed" data-feed="design">
-            <span class="feed-dot"></span><span>Design</span>
+            <span class="feed-dot"></span><span>MARKETS</span>
+            <span class="nav-badge">2</span>
           </button></li>
         </ul>
       </div>
@@ -281,6 +273,22 @@
         <div class="widget-hd">
           <div class="widget-title"><span class="w-mark">◈</span>VIDEO FEED</div>
           <div class="widget-ctrl">
+            <!-- Grid / Carousel toggle -->
+            <button class="wc-btn" id="videoToggleGrid" title="Grid view">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <rect x="1" y="1" width="4" height="4" stroke="currentColor" stroke-width="1.2"/>
+                <rect x="7" y="1" width="4" height="4" stroke="currentColor" stroke-width="1.2"/>
+                <rect x="1" y="7" width="4" height="4" stroke="currentColor" stroke-width="1.2"/>
+                <rect x="7" y="7" width="4" height="4" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+            </button>
+            <button class="wc-btn wc-active" id="videoToggleCarousel" title="Carousel view">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <line x1="1" y1="3" x2="12" y2="3" stroke="currentColor" stroke-width="1.2"/>
+                <line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.2"/>
+                <line x1="1" y1="10" x2="12" y2="10" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+            </button>
             <button class="wc-btn" id="videoRefBtn" title="Refresh">
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 2.5A5.5 5.5 0 1 0 12 7" stroke-linecap="round"/><polyline points="9,0.5 11,2.5 9,4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -290,7 +298,23 @@
           </div>
         </div>
         <div class="widget-body" id="wb-videos">
-          <div class="video-grid" id="videoGrid"></div>
+          <!-- Carousel (default) -->
+          <div class="video-carousel" id="videoCarousel">
+            <div class="vc-stage" id="vcStage"></div>
+            <button class="vc-arrow vc-prev" id="vcPrev" aria-label="Previous">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M6.5 1.5L3 5l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="vc-arrow vc-next" id="vcNext" aria-label="Next">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M3.5 1.5L7 5l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="vc-dots" id="vcDots"></div>
+          </div>
+          <!-- Grid (hidden by default) -->
+          <div class="video-grid vc-hidden" id="videoGrid"></div>
         </div>
       </div>
 
