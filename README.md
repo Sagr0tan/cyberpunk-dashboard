@@ -11,10 +11,10 @@ A cyberpunk-themed personal dashboard — dark retrofuturistic UI with neon acce
 | **Notes** | Multi-note editor with localStorage persistence, char counter, new/delete/save |
 | **Todo** | Task list with priority levels (high/med/low), add/complete/delete, localStorage |
 | **News Feed** | 12 mock articles with category filter (Tech / Science / Design) and thumbnails |
-| **Video Feed** | 6 mock video cards in a 2-column grid with play overlay on hover |
+| **Video Feed** | Carousel mode by default (fullscreen slide, prev/next, dot indicators) + grid toggle |
 | **Projects** | Progress tracker with animated bars, status dots, due dates, add/delete modal |
 
-**Sidebar:** live clock, nav accordion, CPU/MEM system stats (simulated), collapsible.
+**Sidebar:** live clock, MODULES nav (OVERVIEW · ANALYTICS · TERMINAL), FEEDS nav (NEWS · SOCIAL · MARKETS), CPU/MEM system stats (simulated), collapsible.
 
 ## Quick Start
 

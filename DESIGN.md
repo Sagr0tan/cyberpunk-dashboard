@@ -92,21 +92,24 @@ No extra DOM elements required.
 .widget-grid {
   display: grid;
   grid-template-areas:
-    "notes news    news"
-    "notes videos  projects"
-    "todo  videos  projects";
-  grid-template-columns: 280px 1fr 1fr;
-  grid-template-rows: 40% 35% 25%;
+    "projects  todo   news"
+    "notes     video  video";
+  grid-template-columns: 0.7fr 0.45fr 1fr;
+  grid-template-rows: 50% 50%;
+  gap: var(--gap);
+  padding: var(--gap);
 }
 ```
 
-| Area | Widget |
-|------|--------|
-| `notes` | Notes (spans rows 1–2) |
-| `news` | News Feed (spans rows 1) |
-| `todo` | Todo |
-| `videos` | Video Feed (spans rows 2–3) |
-| `projects` | Projects (spans rows 2–3) |
+| Area | Widget | Column | Row |
+|------|--------|--------|-----|
+| `projects` | Projects | 0.7fr | 1 |
+| `todo` | Todo | 0.45fr | 1 |
+| `news` | News Feed | 1fr | 1 |
+| `notes` | Notes | 0.7fr | 2 |
+| `video` | Video Feed | 0.45fr + 1fr (spans 2 cols) | 2 |
+
+Column rationale: Projects and Notes are the primary workspace columns (wider), Todo stays narrow, News Feed gets the most space to show content density.
 
 ### Sidebar
 

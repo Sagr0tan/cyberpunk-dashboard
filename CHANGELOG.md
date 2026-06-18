@@ -2,6 +2,34 @@
 
 All notable changes to CyberDash are documented here.
 
+## [1.1.0] — 2026-06-18
+
+### Layout
+- New 2-row CSS Grid: `"projects todo news" / "notes video video"`
+- Columns: `0.7fr 0.45fr 1fr` — Projects wide, Todo narrow, News widest
+- Rows: `50% / 50%` equal split
+
+### Video Feed
+- Carousel mode as default — fullscreen single video with prev/next arrow buttons and dot indicator row
+- Grid mode toggle — 2-column card grid (same as v1.0)
+- Cyberpunk-themed video titles: NEURAL LINK PROTOCOL, DARK WEB ARCHITECTURE, QUANTUM BREACH, SYNTHETIC VISION, SHADOWGRID, CIPHER MATRIX
+- Sources renamed to cyberpunk handles: NETCORE.TV, CIPHER.NET, BLACKHAT.IO, AUGMENT.FX, GHOST.SIGNAL, CRYPTEX.LAB
+
+### Sidebar
+- MODULES section: OVERVIEW · ANALYTICS · TERMINAL (with live badges)
+- FEEDS section: NEWS (10) · SOCIAL (8) · MARKETS (2)
+
+### Topbar
+- Date format updated to include weekday abbreviation: `THU, JUN 18`
+
+### Content
+- Default projects updated: NEXUS UPLINK (100%) · GHOST PROTOCOL (67%) · CIPHER MATRIX (34%) · SHADOW NODE (20%)
+- Default todos: CALIBRATE NEURAL INTERFACE · UPDATE FIREWALL PROTOCOLS · SYNC BACKUP TO OFFSITE NODE · REVIEW SECTOR 7 ACCESS LOGS · OPTIMIZE MEMORY ALLOCATION
+- Default note renamed to MISSION BRIEFING with cyberpunk content
+- News headlines replaced with cyberpunk-themed stories (sources: WIRED.NET, TECHCORE, UX WORLD, NET PULSE, BIOTECH.IO, etc.)
+
+---
+
 ## [1.0.0] — 2026-06-18
 
 ### Initial Release
