@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberDash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/widgets.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+<div class="app" id="app">
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+      <svg class="logo-hex" width="34" height="38" viewBox="0 0 34 38" fill="none">
+        <polygon points="17,2 32,10.5 32,27.5 17,36 2,27.5 2,10.5"
+                 stroke="var(--neon)" stroke-width="1.5" fill="none"/>
+        <text x="17" y="25" text-anchor="middle"
+              fill="var(--neon)" font-family="Orbitron,monospace"
+              font-size="11" font-weight="700">CD</text>
+      </svg>
+      <div class="logo-info">
+        <span class="logo-name">CYBERDASH</span>
+        <span class="logo-ver">SYS v2.4.1</span>
+      </div>
+    </div>
+
+    <div class="sidebar-clock">
+      <div class="sc-time" id="scTime">00:00:00</div>
+      <div class="sc-date" id="scDate">----.--.--</div>
+      <div class="sc-status">
+        <span class="sc-led"></span>
+        <span>ONLINE</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <div class="nav-group">
+        <button class="nav-group-hd" data-target="nav-modules">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <rect x="1" y="1" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="7.5" y="1" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="1" y="7.5" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="7.5" y="7.5" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <span>MODULES</span>
+          <svg class="nav-arrow" width="9" height="9" viewBox="0 0 9 9" fill="none">
+            <path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </button>
+        <ul class="nav-group-list" id="nav-modules">
+          <li><button class="nav-item active" data-module="notes">
+            <span class="nav-pip"></span><span>Notes</span>
+            <span class="nav-badge" id="nb-notes">1</span>
+          </button></li>
+          <li><button class="nav-item" data-module="todo">
+            <span class="nav-pip"></span><span>Todo</span>
+            <span class="nav-badge" id="nb-todo">0</span>
+          </button></li>
+          <li><button class="nav-item" data-module="news">
+            <span class="nav-pip"></span><span>News Feed</span>
+            <span class="nav-badge new">NEW</span>
+          </button></li>
+          <li><button class="nav-item" data-module="videos">
+            <span class="nav-pip"></span><span>Videos</span>
+          </button></li>
+          <li><button class="nav-item" data-module="projects">
+            <span class="nav-pip"></span><span>Projects</span>
+            <span class="nav-badge" id="nb-projects">3</span>
+          </button></li>
+        </ul>
+      </div>
+
+      <div class="nav-group">
+        <button class="nav-group-hd" data-target="nav-feeds">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <circle cx="2.5" cy="10.5" r="1.3" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M1.2 6.5a6 6 0 0 1 10.1 0" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M1.2 3A9.5 9.5 0 0 1 11.8 3" stroke="currentColor" stroke-width="1.2" fill="none"/>
+          </svg>
+          <span>FEEDS</span>
+          <svg class="nav-arrow" width="9" height="9" viewBox="0 0 9 9" fill="none">
+            <path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </button>
+        <ul class="nav-group-list" id="nav-feeds">
+          <li><button class="nav-item nav-item--feed active" data-feed="all">
+            <span class="feed-dot on"></span><span>All Feeds</span>
+          </button></li>
+          <li><button class="nav-item nav-item--feed" data-feed="tech">
+            <span class="feed-dot"></span><span>Technology</span>
+          </button></li>
+          <li><button class="nav-item nav-item--feed" data-feed="science">
+            <span class="feed-dot"></span><span>Science</span>
+          </button></li>
+          <li><button class="nav-item nav-item--feed" data-feed="design">
+            <span class="feed-dot"></span><span>Design</span>
+          </button></li>
+        </ul>
+      </div>
+
+      <div class="nav-group">
+        <button class="nav-group-hd" data-target="nav-system">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <circle cx="6.5" cy="6.5" r="2" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M6.5 1v1.5M6.5 10v1.5M1 6.5h1.5M10 6.5h1.5
+                     M2.6 2.6l1.1 1.1M9.3 9.3l1.1 1.1
+                     M2.6 10.4l1.1-1.1M9.3 3.7l1.1-1.1"
+                  stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <span>SYSTEM</span>
+          <svg class="nav-arrow" width="9" height="9" viewBox="0 0 9 9" fill="none">
+            <path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </button>
+        <ul class="nav-group-list collapsed" id="nav-system">
+          <li><button class="nav-item" data-action="toggle-grid">
+            <span class="nav-pip"></span><span>Layout</span>
+          </button></li>
+          <li><button class="nav-item" data-action="about">
+            <span class="nav-pip"></span><span>About</span>
+          </button></li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sys-bar">
+        <span class="sys-lbl">CPU</span>
+        <div class="sys-track"><div class="sys-fill" id="sysCpu" style="width:0%"></div></div>
+        <span class="sys-val" id="sysCpuVal">--</span>
+      </div>
+      <div class="sys-bar">
+        <span class="sys-lbl">MEM</span>
+        <div class="sys-track"><div class="sys-fill" id="sysMem" style="width:0%"></div></div>
+        <span class="sys-val" id="sysMemVal">--</span>
+      </div>
+    </div>
+
+  </aside>
+  <!-- ══════════ /SIDEBAR ══════════ -->
+
+
+  <!-- ══════════ MAIN AREA ══════════ -->
+  <div class="main-area">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-l">
+        <button class="sb-toggle" id="sbToggle" aria-label="Toggle sidebar">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <line x1="2" y1="5" x2="16" y2="5" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="2" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="2" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </button>
+        <h1 class="topbar-title">DASHBOARD</h1>
+        <span class="topbar-sep">/</span>
+        <span class="topbar-sub" id="topbarSub">Overview</span>
+      </div>
+      <div class="topbar-r">
+        <div class="topbar-clock">
+          <span class="tb-time" id="tbTime">--:--:--</span>
+          <span class="tb-date" id="tbDate">---- / -- / --</span>
+        </div>
+        <button class="tb-btn" id="tbRefresh" aria-label="Refresh">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M13 2v4h-4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M2 13v-4h4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 6A5.5 5.5 0 0 0 2.5 5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M2 9A5.5 5.5 0 0 0 12.5 10" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </button>
+        <button class="tb-btn" aria-label="Notifications">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M11 5.5A3.5 3.5 0 0 0 4 5.5c0 4.5-2 5.5-2 5.5h11s-2-1-2-5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8.5 12.5a1 1 0 0 1-2 0" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Widget Grid -->
+    <div class="widget-grid" id="widgetGrid">
+
+      <!-- NOTES -->
+      <div class="widget widget--notes hud-box" id="w-notes" data-wid="notes">
+        <div class="widget-hd">
+          <div class="widget-title"><span class="w-mark">◈</span>NOTES</div>
+          <div class="widget-ctrl">
+            <button class="wc-btn" id="noteNewBtn" title="New note">
+              <svg width="13" height="13" viewBox="0 0 13 13"><line x1="6.5" y1="1" x2="6.5" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+            <button class="wc-btn wc-collapse" data-wid="notes" title="Collapse">
+              <svg width="13" height="13" viewBox="0 0 13 13"><line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="widget-body" id="wb-notes">
+          <div class="notes-sel-row">
+            <select class="cy-select" id="notesSel"></select>
+            <button class="cy-btn-ghost" id="noteDelBtn" title="Delete note">DEL</button>
+          </div>
+          <textarea class="notes-area" id="notesArea" placeholder="// begin note entry..." spellcheck="false"></textarea>
+          <div class="notes-foot">
+            <span class="notes-cc" id="notesCC">0 chars</span>
+            <button class="cy-btn-sm" id="notesSaveBtn">SAVE</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TODO -->
+      <div class="widget widget--todo hud-box" id="w-todo" data-wid="todo">
+        <div class="widget-hd">
+          <div class="widget-title">
+            <span class="w-mark">◈</span>TODO
+            <span class="w-count" id="todoCount">0</span>
+          </div>
+          <div class="widget-ctrl">
+            <button class="wc-btn wc-collapse" data-wid="todo" title="Collapse">
+              <svg width="13" height="13" viewBox="0 0 13 13"><line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="widget-body" id="wb-todo">
+          <form class="todo-form" id="todoForm" autocomplete="off">
+            <select class="todo-pri" id="todoPri" title="Priority">
+              <option value="high">HI</option>
+              <option value="med" selected>MD</option>
+              <option value="low">LO</option>
+            </select>
+            <input class="todo-inp" id="todoInp" type="text" placeholder="// add task...">
+            <button class="todo-add" type="submit">+</button>
+          </form>
+          <ul class="todo-list" id="todoList"></ul>
+        </div>
+      </div>
+
+      <!-- NEWS -->
+      <div class="widget widget--news hud-box" id="w-news" data-wid="news">
+        <div class="widget-hd">
+          <div class="widget-title">
+            <span class="w-mark">◈</span>NEWS FEED
+            <span class="live-pip"></span>
+          </div>
+          <div class="widget-ctrl">
+            <button class="wc-btn" id="newsRefBtn" title="Refresh">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <path d="M11 1.5v3.5H7.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 11.5V8H5.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M11 5A4.5 4.5 0 0 0 2 4.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 8A4.5 4.5 0 0 0 11 8.5" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
+            <button class="wc-btn wc-collapse" data-wid="news" title="Collapse">
+              <svg width="13" height="13" viewBox="0 0 13 13"><line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="widget-body" id="wb-news">
+          <div class="news-tabs" id="newsTabs">
+            <button class="news-tab active" data-cat="all">ALL</button>
+            <button class="news-tab" data-cat="tech">TECH</button>
+            <button class="news-tab" data-cat="science">SCI</button>
+            <button class="news-tab" data-cat="design">DESIGN</button>
+          </div>
+          <ul class="news-list" id="newsList"></ul>
+        </div>
+      </div>
+
+      <!-- VIDEOS -->
+      <div class="widget widget--videos hud-box" id="w-videos" data-wid="videos">
+        <div class="widget-hd">
+          <div class="widget-title"><span class="w-mark">◈</span>VIDEO FEED</div>
+          <div class="widget-ctrl">
+            <button class="wc-btn" id="videoRefBtn" title="Refresh">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 2.5A5.5 5.5 0 1 0 12 7" stroke-linecap="round"/><polyline points="9,0.5 11,2.5 9,4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="wc-btn wc-collapse" data-wid="videos" title="Collapse">
+              <svg width="13" height="13" viewBox="0 0 13 13"><line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="widget-body" id="wb-videos">
+          <div class="video-grid" id="videoGrid"></div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="widget widget--projects hud-box" id="w-projects" data-wid="projects">
+        <div class="widget-hd">
+          <div class="widget-title"><span class="w-mark">◈</span>PROJECTS</div>
+          <div class="widget-ctrl">
+            <button class="wc-btn" id="projAddBtn" title="Add project">
+              <svg width="13" height="13" viewBox="0 0 13 13"><line x1="6.5" y1="1" x2="6.5" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+            <button class="wc-btn wc-collapse" data-wid="projects" title="Collapse">
+              <svg width="13" height="13" viewBox="0 0 13 13"><line x1="1" y1="6.5" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="widget-body" id="wb-projects">
+          <div class="proj-list" id="projList"></div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /Widget Grid -->
+
+  </div>
+  <!-- ══════════ /MAIN AREA ══════════ -->
+
+</div>
+
+<!-- Add Project Modal -->
+<div class="modal-overlay" id="projModal">
+  <div class="modal hud-box">
+    <div class="modal-hd">
+      <span class="w-mark">◈</span>
+      <span>NEW PROJECT</span>
+      <button class="modal-close" id="projModalClose" type="button">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="projForm" autocomplete="off">
+        <label class="cy-label">PROJECT NAME
+          <input class="cy-input" id="projNameInp" type="text" placeholder="// project identifier..." required>
+        </label>
+        <label class="cy-label">PROGRESS (0 – 100)
+          <input class="cy-input" id="projProgInp" type="number" min="0" max="100" value="0" placeholder="0">
+        </label>
+        <label class="cy-label">STATUS
+          <select class="cy-select" id="projStatSel">
+            <option value="active">ACTIVE</option>
+            <option value="pending">PENDING</option>
+            <option value="paused">PAUSED</option>
+          </select>
+        </label>
+        <label class="cy-label">DUE DATE
+          <input class="cy-input" id="projDueInp" type="date">
+        </label>
+        <div class="modal-actions">
+          <button class="cy-btn-ghost" id="projCancelBtn" type="button">CANCEL</button>
+          <button class="cy-btn-sm" type="submit">ADD PROJECT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="scripts/widgets/notes.js"></script>
+<script src="scripts/widgets/todo.js"></script>
+<script src="scripts/widgets/news.js"></script>
+<script src="scripts/widgets/videos.js"></script>
+<script src="scripts/widgets/projects.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
